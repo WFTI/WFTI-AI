@@ -1,0 +1,51 @@
+{
+    "SPORT": [
+        "workingOut",
+        "hiking",
+        "swimming",
+        "yoga",
+        "pilates",
+        "basketball",
+        "football"
+    ],
+    "SOCIAL": [
+        "instagram",
+        "facebook",
+        "reddit"
+    ],
+    "SHOPPING": [
+        "clothes",
+        "computer",
+        "shoes",
+        "cosmetics",
+        "camera",
+        "movie",
+        "stamp",
+        "antique"
+    ],
+    "GAME": [
+        "board",
+        "mmorpg",
+        "card",
+        "mobile",
+        "console"
+    ],
+    "MEDIA": [
+        "song",
+        "movie",
+        "broadcast",
+        "radio",
+        "festival",
+        "concert",
+        "musical"
+    ],
+    "CREATION": [
+        "paint",
+        "song",
+        "knitting",
+        "programming",
+        "instrument",
+        "photograph",
+        "filming"
+    ]
+}
