@@ -1,25 +1,27 @@
 import os
 import json
 import random
+import pickle
 import pandas as pd
 
 def main():
+    path = os.path.join(os.getcwd(), "DummyData")
     """
     Hyper-parameters
     """
-    population_num = 99999
+    population_num = 10
 
     """
     Load Dummy Items
     """
     print("Read jsons")
-    character = readJson("characteristic.json")
-    preferences = readJson("preference_list.json")
+    character = readJson(path, "characteristic.json")
+    preferences = readJson(path, "preference_list.json")
 
     """
     Generate Table
     """
-    main_columns = ["name", "age", "sex", "residence"]
+    main_columns = ["NAME", "AGE", "SEX", "RESIDENCE"]
     sub_columns = []
     for class_1, class_2 in preferences.items():
         for item in class_2:
@@ -40,18 +42,20 @@ def main():
 
         if len(values) != len(columns):
             raise ValueError("columns({}) != values({})".format(len(columns), len(values)))
-        df = pd.DataFrame(values, columns=columns)
+        df = pd.DataFrame([values], columns=columns)
 
-        df_table.append(df, ignore_index=True)
+        df_table = pd.concat([df_table, df], ignore_index=True)
 
     print("Generate All Population!")
 
-    df_table.to_csv("Population.csv")
+    with open(os.path.join(path, "Population.pkl"), 'wb') as f:
+        pickle.dump(df_table, f)
+
     print("Done")
     return
 
-def readJson(fileName):
-    with open(os.path.join(os.getcwd(), "DummyData", fileName), "r", encoding='UTF-8') as f:
+def readJson(path, fileName):
+    with open(os.path.join(path, fileName), "r", encoding='UTF-8') as f:
         data = json.load(f)
     return data
 
