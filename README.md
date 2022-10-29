@@ -1,4 +1,4 @@
 # WFTI-AI
 
-<installation>
-pandas
+installation
+ - pandas
