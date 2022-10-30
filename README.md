@@ -2,4 +2,4 @@
 
 installation
  - pandas
- - 
+ - pytorch
